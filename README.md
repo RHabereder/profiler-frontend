@@ -1,39 +1,47 @@
-# frontend-unnuxt
+# Profiler Renderservice
 
-This template should help get you started developing with Vue 3 in Vite.
+The Frontend for the Profiler App
 
-## Recommended IDE Setup
+## Attributions
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- The [Vue.js Team](https://vuejs.org/) for creating my favorite frontend Framework
+- The [PrimeVue Team](https://primevue.org/) for creating my favorite vue UI Library
 
-## Type Support for `.vue` Imports in TS
+## What you'll need
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- [Nodejs](https://nodejs.org/)
+- JavaScript toolkit like [npm](https://www.npmjs.com/), [bun](https://www.bun.sh/), or [pnpm](https://pnpm.io/)
 
-## Customize configuration
+## Things I recommend
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- [WSL](https://learn.microsoft.com/en-us/windows/wsl/install/Linux) (Because I built a few helper-scripts to get you started)
+- [bun](https://www.bun.sh/) (Because it's performance is staggering and how easy it is to use)
 
-## Project Setup
+## How to run it
 
-```sh
-npm install
-```
+Either you use `bun run dev`, or if you want to debug in VSCode, you can use the following Launch Configuration: 
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+```json
+//Chrome
+{
+    "type": "chrome",
+    "request": "launch",
+    "name": "Client: Chrome",
+    "url": "http://localhost:5173",
+    "webRoot": "${workspaceFolder}/frontend"
+}
+//Edge
+{
+    "type": "msedge",
+    "request": "launch",
+    "name": "Client: Edge",
+    "url": "http://localhost:5173/",
+    "webRoot": "${workspaceFolder}/frontend",
+    "sourceMaps": true,
+    "sourceMapPathOverrides": {
+        "meteor://💻app/*": "${webRoot}/*",
+        "webpack:///./~/*": "${webRoot}/node_modules/*",
+        "webpack://?:*/*": "${webRoot}/*"
+    },
+},
 ```
